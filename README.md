@@ -26,6 +26,7 @@ It’s intended as a Go learning project
 rss3270svr is a simple, single file Go example so it is easy to get running. I use 7300 as the Linux server port that you will access from your TN3270 terminal emulator, so use UFW as follows to open up that port
 
   sudo ufw allow 7300/tcp
+  
   sudo UFW reload
 
 Then create a directory to place the rss3270svr.go file into. I like to place it into my user name home under /home. You can do as you please of course
