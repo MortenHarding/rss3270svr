@@ -57,7 +57,7 @@ Connect to the server's IP with a 3270 Client using port 7300 and a model 2 term
 Example: x3270 your.server.ip:7300
 
 ---
-##License / Attribution
+## License / Attribution
 This code is free to use, experiment with, and modify.
 
 The 3270 handling logic uses racingmars/go3270 (MIT-style / open source) as the backend for TN3270 screens.
