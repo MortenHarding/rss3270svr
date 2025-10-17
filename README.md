@@ -1,7 +1,7 @@
 The code in this repo is a fork of https://github.com/ErnieTech101/rss3270svr
 with the below improvements and added features.
 
-# rss3270svr - a 3270 RSS Server written in Go
+# A 3270 RSS Server written in Go
 This is a minimal example of a **3270 (TN3270)** terminal server in Go that displays an RSS feeds on a 24×80 style “green screen” using the `racingmars/go3270` library.
 
 ---
