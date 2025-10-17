@@ -13,6 +13,7 @@ This is a minimal example of a **3270 (TN3270)** terminal server in Go that disp
 - Add a custom RSS feed
 - Customize the list of RSS feeds presented using the file `rssfeed.url`
 - First row in `rssfeed.url` is the default RSS feed
+- Handle some special characters, not in EBCDIC. Currently only Nordic characters.
 - Refresh the RSS feed when you press **Enter**
 - Select another RSS feed by pressing **PF4**
 - Type `q` + Enter to quit, or press **PF3** / **Clear**      
@@ -21,14 +22,13 @@ This is a minimal example of a **3270 (TN3270)** terminal server in Go that disp
 ## Requirements
 
 - Network access from client to rss3270svr on port 7300, which is the default, or set port using the command line parameter -port xxxx
-- The file `rssfeed.url`
+- The file [rssfeed.url](https://github.com/MortenHarding/rss3270svr/blob/main/rssfeed.url)
 - A TN3270 emulator on client side (e.g. x3270, wc3270)
 
 ---
 ## How to use it
 
-Get the latest releae of rss3270svr from github, and the file `rssfeed.url`.
-Start it up.
+Get the latest releae of [rss3270svr](https://github.com/MortenHarding/rss3270svr/releases) from github, and the file [rssfeed.url](https://github.com/MortenHarding/rss3270svr/blob/main/rssfeed.url). Place both files in the same directory, and start rss3270svr.
 
  `./rss3270svr`
 
