@@ -1,60 +1,67 @@
-# rss3270svr - a 3270 RSS Server written in Go
-This is a minimal example of a **3270 (TN3270)** terminal server in Go that displays an RSS feed (BBC World) on a 24×80 style “green screen” using the `racingmars/go3270` library.
+The code in this repo is a fork of https://github.com/ErnieTech101/rss3270svr
+with the below improvements and added features.
 
-Created by A. Nadoff, A. Del Vecchio and D. Doler, it’s intended as a Go learning project
+# rss3270svr - a 3270 RSS Server written in Go
+This is a minimal example of a **3270 (TN3270)** terminal server in Go that displays an RSS feeds on a 24×80 style “green screen” using the `racingmars/go3270` library.
 
 ---
-## Features - There's not too many...for now
+## Features
 
-- Connect via a 3270 emulator (e.g. `wx3270`, `wc3270`, Vista or Mocha for Mac) to port **9010**  
-- Displays top headlines from the BBC World RSS feed:  
-  `https://feeds.bbci.co.uk/news/world/rss.xml`  
-- Refresh the RSS feed when you press **Enter**  
+- Connect via a 3270 emulator (e.g. `wx3270`, `wc3270`, Vista or Mocha for Mac) to port **7300**  
+- Displays top headlines from a selected RSS feed  
+- Switch between different RSS feeds
+- Add a custom RSS feed
+- Customize the list of RSS feeds presented using the file `rssfeed.url`
+- First row in `rssfeed.url` is the default RSS feed
+- Refresh the RSS feed when you press **Enter**
+- Select another RSS feed by pressing **PF4**
 - Type `q` + Enter to quit, or press **PF3** / **Clear**      
 
 ---
 ## Requirements
 
-- Go installed (1.18+ or whatever version you use)  
-- Network access from client to your server’s port 7300. You can change the code to change the port #
+- Network access from client to rss3270svr on port 7300, which is the default, or set port using the command line parameter -port xxxx
+- The file `rssfeed.url`
 - A TN3270 emulator on client side (e.g. x3270, wc3270)
-- You'll get the Github racingmars go3270 library in the installation step
 
 ---
 ## How to use it
 
-rss3270svr is a simple, single file Go example so it is easy to get running. I use 9010 as the Linux server port that you will access from your TN3270 terminal emulator, so use UFW as follows to open up that port
+Get the latest releae of rss3270svr from github, and the file `rssfeed.url`.
+Start it up.
 
-  sudo ufw allow 9010/tcp
-  
-  sudo UFW reload
+ `./rss3270svr`
 
-Then create a directory to place the rss3270svr.go file into. I like to place it into my user name home under /home. You can do as you please of course
+The default port is 7300 that you will access from your TN3270 terminal emulator.
+Select your own port, using the command line parameter -port
 
-   mkdir rss3270svr
+ `./rss3270svr -port 9010`
 
-Then copy the rss3270svr.go file in the rss3270svr directory you just made. Make sure the permissions allow you to run and edit it
-   
-   cd rss3270svr
-   go mod init rss3270svr
+---
+## How to connect
+Connect to the server's IP with a 3270 Client using port 7300 and a model 2 terminal style
+
+Example: `x3270 localhost:7300`
+
+---
+## Compile your own rss3270svr executable
+
+ `git clone https://github.com/MortenHarding/rss3270svr.git`
+
+ `cd rss3270svr`
+ 
+ `go mod init rss3270svr`
 
 Add the githut racingmars Go3270 dependency:
    
-   go get github.com/racingmars/go3270@latest
-   go mod tidy
+ `go get github.com/racingmars/go3270@latest`
+ 
+ `go mod tidy`
 
-You can run it via Go run
-   
-   go run ./rss3270svr.go
+Build an executable
 
-or run it after you've built it into an executable
-
-   go build -o rss3270srv rss3270srv.go
-   ./rss3270svr
-
-Connect to the server's IP with a 3270 Client using port 9010 and a model 2 terminal style
-
-Example: x3270 your.server.ip:9010
+ `go build -o rss3270svr rss3270svr.go`
+ 
 
 ---
 ## License / Attribution
